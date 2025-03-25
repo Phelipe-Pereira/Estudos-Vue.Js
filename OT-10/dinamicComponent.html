@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Componentes Dinâmicos</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+</head>
+<body>
+
+  <div id="app">
+    <button @click="currentComponent = 'component-a'">Componente A</button>
+    <button @click="currentComponent = 'component-b'">Componente B</button>
+
+    <component :is="currentComponent"></component>
+  </div>
+
+  <script>
+    Vue.component('component-a', {
+      template: '<div>Este é o Componente A</div>'
+    });
+
+    Vue.component('component-b', {
+      template: '<div>Este é o Componente B</div>'
+    });
+
+    new Vue({
+      el: '#app',
+      data: {
+        currentComponent: 'component-a'
+      }
+    });
+  </script>
+
+</body>
+</html>

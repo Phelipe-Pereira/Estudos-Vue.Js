@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Curso de VUE JS - Diretivas v-model interligando formulário e dados</title>
+</head>
+<body>
+    <div id="app">
+        <div id="container">
+            <div id="form">
+                <h1>{{ titulo }}</h1>
+                <div id="input">
+                    <label for="">Nome:</label>
+                <input type="text" v-model="nome">
+                <br>
+
+                <label for="">Email:</label>
+                <input type="text" v-model="email">
+                <br><br>
+
+                <button @click="printDados(nome, email)">Enviar</button>
+                </div>
+                <hr>
+
+                <h2>Dados do Formulário</h2>
+                Nome: {{ nome }}<br>
+                Email: {{ email }} <br>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                titulo: 'Aprendendo Vue JS',  // Corrigido "Apreendendo" para "Aprendendo"
+                nome: "",
+                email: ""
+            },
+            methods: {
+                printDados(nome, email) {
+                    alert(`Dados enviados:\nNome: ${nome}\nEmail: ${email}`);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

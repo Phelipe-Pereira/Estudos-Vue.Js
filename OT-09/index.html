@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue Lifecycle Example</title>
+</head>
+<body>
+  <div id="app">
+    <h1>{{ message }}</h1>
+    <button @click="changeMessage">Change Message</button>
+    <button @click="destroyComponent">Destroy Component</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello Vue.js!'
+      },
+      methods: {
+        changeMessage() {
+          this.message = 'Message Updated!';
+        },
+        destroyComponent() {
+          this.$destroy(); // Destroi o componente manualmente
+        }
+      },
+      // Lifecycle hooks
+      beforeCreate() {
+        console.log('beforeCreate: Dados ainda não estão disponíveis');
+      },
+      created() {
+        console.log('created: Dados já foram inicializados');
+      },
+      beforeMount() {
+        console.log('beforeMount: Componente prestes a ser montado no DOM');
+      },
+      mounted() {
+        console.log('mounted: Componente montado no DOM');
+      },
+      beforeUpdate() {
+        console.log('beforeUpdate: Dados foram alterados, prestes a atualizar o DOM');
+      },
+      updated() {
+        console.log('updated: DOM foi atualizado');
+      },
+      beforeDestroy() {
+        console.log('beforeDestroy: Componente prestes a ser destruído');
+      },
+      destroyed() {
+        console.log('destroyed: Componente foi destruído');
+      }
+    });
+  </script>
+</body>
+</html>

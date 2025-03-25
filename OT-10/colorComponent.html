@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+</head>
+<body>
+
+  <div id="app">
+    <button-component text="Clique Aqui" color="green"></button-component>
+    <button-component text="Enviar" color="blue"></button-component>
+    <button-component text="Cancelar" color="red"></button-component>
+  </div>
+
+  <script>
+    Vue.component('button-component', {
+      props: ['text', 'color'],
+      template: '<button :style="{ backgroundColor: color }">{{ text }}</button>'
+    });
+
+    new Vue({
+      el: '#app'
+    });
+  </script>
+
+</body>
+</html>

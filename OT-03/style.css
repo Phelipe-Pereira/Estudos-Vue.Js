@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blueviolet; 
+}
+
+#form {
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#input button {
+    padding: 10px;
+    border: 10px;
+}
+
+h1 {
+    padding: 10px 30px
+}
+label {
+    padding: 15px;
+}
+
+input {
+    margin: 3px;
+}

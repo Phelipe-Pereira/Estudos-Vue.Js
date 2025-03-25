@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evento com @clicked</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+</head>
+<body>
+
+  <div id="app">
+    <button-component text="Clique Aqui" @clicked="handleClick"></button-component>
+  </div>
+
+  <script>
+    Vue.component('button-component', {
+      props: ['text'],
+      template: '<button @click="emitClick">{{ text }}</button>',
+      methods: {
+        emitClick() {
+          this.$emit('clicked'); // Emite um evento personalizado chamado 'clicked'
+        }
+      }
+    });
+
+    new Vue({
+      el: '#app',
+      methods: {
+        handleClick() {
+          alert('O botão foi clicado!');
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>

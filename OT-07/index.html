@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <h1>{{ usuario.nome | capitalize }}</h1>
+    <p>{{ usuario.bio | truncate(30) }}</p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        usuario: {
+          nome: 'joão silva',
+          bio: 'João é um desenvolvedor apaixonado por tecnologias de frontend e backend, com ampla experiência.'
+        }
+      },
+      filters: {
+        capitalize(valor) {
+          if (!valor) return '';
+          valor = valor.toString();
+          return valor.charAt(0).toUpperCase() + valor.slice(1);
+        },
+        truncate(valor, limite) {
+          if (!valor) return '';
+          valor = valor.toString();
+          return valor.length > limite ? valor.substring(0, limite) + '...' : valor;
+        }
+      }
+    });
+  </script>
+</body>
+</html>

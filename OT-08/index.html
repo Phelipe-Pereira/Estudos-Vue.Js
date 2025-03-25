@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>exemplo com watch</title>
+</head>
+<body>
+
+  <div id="app">
+    <p>{{ fullName }}</p>
+    <input v-model="firstName" placeholder="First Name" />
+    <input v-model="lastName" placeholder="Last Name" />
+    <p>{{ apiResponse }}</p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        firstName: 'John',
+        lastName: 'Doe',
+        apiResponse: ''
+      },
+      computed: {
+        // Propriedade computada que retorna o nome completo
+        fullName() {
+          return `${this.firstName} ${this.lastName}`;
+        }
+      },
+      watch: {
+        // Observa mudanças no 'fullName' e faz uma chamada de API fictícia
+        fullName(newName) {
+          this.fakeApiCall(newName);
+        }
+      },
+      methods: {
+        fakeApiCall(name) {
+          // Simulando uma chamada de API e alterando apiResponse
+          this.apiResponse = `API chamada com o nome: ${name}`;
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
